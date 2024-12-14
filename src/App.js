@@ -5,6 +5,8 @@ import Register from "./Register"; // Importar el componente de registro
 import IntroDades from "./IntroDades"; // Importar el componente de introducción de datos
 import Consulta from "./Consulta"; // Importar el componente de consulta
 import History from "./History"; // Importar el componente de consulta
+import QR from "./QR"; // Importar el componente de QR
+import MetgeConsulta from "./MetgeConsulta"; // Importar el componente de consulta del metge
 import medico1 from "./images/medico1.png";
 import pulmon from "./images/pulmon.png";
 
@@ -83,7 +85,7 @@ export default function App() {
                         required
                       />
                     </div>
-                    <button type="submit" className="btn">Inicia sessió</button>
+                    <button>Inicia sessió</button>
                   </form>
 
                   <div className="image-right">
@@ -104,6 +106,8 @@ export default function App() {
           <Route path="/IntroDades" element={<IntroDades />} />
           <Route path="/Consulta" element={<Consulta />} />
           <Route path="/History" element={<History />} />
+          <Route path="/QR" element={<QR />} />
+          <Route path="/MetgeConsulta" element={<MetgeConsulta />} />
         </Routes>
       </div>
     </Router>

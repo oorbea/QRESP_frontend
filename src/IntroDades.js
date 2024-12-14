@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 function getUsernameFromCookie() {
@@ -20,8 +19,6 @@ function getUsernameFromCookie() {
 }
 
 export default function IntroDades() {
-  const navigate = useNavigate(); // Hook para navegar
-
   // Llamar a esta función para obtener el username guardado en la cookie
   const token = getUsernameFromCookie();
 
@@ -87,7 +84,7 @@ export default function IntroDades() {
 
       if (response.ok) {
         setMessage("Dades enviades correctament!");
-        navigate("../History"); // Redirigir a la página de historial
+        window.location.href = "../History"; // Redirigir a la página de historial
         setFormData({
           dni: "",
           name: "",

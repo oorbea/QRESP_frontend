@@ -73,7 +73,7 @@ export default function History() {
 
       if (response.ok) {
         setMessage("Dades enviades correctament!");
-        navigate("../Consulta"); // Redirigir a la pàgina Consulta després de l'èxit
+        navigate("../QR"); // Redirigir a la pàgina Consulta després de l'èxit
       } else {
         const errorData = await response.json();
         setError(`Error: ${errorData.message}`);
@@ -88,7 +88,7 @@ export default function History() {
     <div className="FormHistory">
       <h1>Introdueix les teves dades històriques</h1>
       <form onSubmit={handleSubmit} className="history-form">
-        <div className="form-group">
+        <div className="form-group-history">
           <label htmlFor="mpid">MPID:</label>
           <input
             type="text"
@@ -99,7 +99,7 @@ export default function History() {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group-history">
           <label htmlFor="ttm_base">TTM Base:</label>
           <input
             type="text"
@@ -110,7 +110,7 @@ export default function History() {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group-history">
           <label htmlFor="immuno">Immunosupressió:</label>
           <input
             type="checkbox"
@@ -120,7 +120,7 @@ export default function History() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group-history">
           <label htmlFor="comorbi">Comorbiditat:</label>
           <input
             type="text"
