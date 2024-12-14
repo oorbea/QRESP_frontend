@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importar el hook useNavigate
+import dotenv from "dotenv";
 import "./styles.css";
+dotenv.config();
+
+const PORT_API = process.env.PORT_API ?? 1000;
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -55,7 +59,7 @@ export default function Register() {
     }
 
     try {
-      const response = await fetch("http://localhost:1234/qresp_api/register", {
+      const response = await fetch(`http://localhost:${PORT_API}/qresp_api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
