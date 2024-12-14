@@ -5,11 +5,15 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
-    "dotenv": "^16.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.2",
     "react-scripts": "^5.0.1"
+  },
+  "author": "Ernest Rull & Alcia Ortega",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oorbea/QRESP_frontend/issues"
   },
   "devDependencies": {
     "@types/react": "19.0.0",

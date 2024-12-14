@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importar el hook useNavigate
-import dotenv from "dotenv";
+import IntroDades from "./IntroDades";
 import "./styles.css";
-dotenv.config();
-
-const PORT_API = process.env.PORT_API ?? 1000;
-const BASE_URL = `http://localhost:${PORT_API}`;
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -60,7 +56,7 @@ export default function Register() {
     }
 
     try {
-      const response = await fetch(`${BASE_URL}/qresp_api/register`, {
+      const response = await fetch("http://localhost:1000/qresp_api/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +66,7 @@ export default function Register() {
 
       if (response.ok) {
         setMessage("Usuari registrat amb èxit.");
-        navigate("/intro-dades"); // Redirigir a la pàgina IntroDades després de l'èxit
+        navigate(IntroDades); // Redirigir a la pàgina IntroDades després de l'èxit
       } else {
         const errorData = await response.json();
         setError(`Error: ${errorData.message}`);
