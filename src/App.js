@@ -33,9 +33,9 @@ export default function App() {
       if (response.ok) {
         const result = await response.json();
         // Guardamos el username en la cookie
-        setUsernameCookie(formData.username);
+        setUsernameCookie(data.username);
+        window.location.href = "../Consulta"; // Redirige usando window.location
         setMessage(`Bienvenido, ${result.username}`);
-        navigate("../Consulta"); // Redirigir a la página de consulta
       } else {
         const error = await response.json();
         setMessage(`Error: ${error.message}`);
