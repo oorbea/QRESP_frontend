@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 function getUsernameFromCookie() {
@@ -19,7 +20,7 @@ function getUsernameFromCookie() {
 }
 
 export default function IntroDades() {
-  // Función para obtener el valor de una cookie por nombre
+  const navigate = useNavigate(); // Hook para navegar
 
   // Llamar a esta función para obtener el username guardado en la cookie
   const token = getUsernameFromCookie();
