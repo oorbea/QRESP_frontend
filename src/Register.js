@@ -6,7 +6,7 @@ export default function Register() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    re_password: "",
+    re_password: "", // Afegeixo el camp re_password a l'estat
   });
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -28,7 +28,7 @@ export default function Register() {
       return false;
     }
 
-    // Comprovar si la password compleix els requisits
+    // Comprovar si la contrasenya compleix els requisits
     const passwordRegex = /^(?=.*[A-Z]).{8,}$/; // Majúscula i mínim 8 caràcters
     if (!passwordRegex.test(password)) {
       setError(
@@ -36,12 +36,12 @@ export default function Register() {
       );
       return false;
     }
+
+    // Comprovar la longitud màxima de la contrasenya
     if (password.length > 100) {
-        setError(
-          "La contrasenya no pot ser tant gran."
-        );
-        return false;
-      }
+      setError("La contrasenya no pot ser tant gran.");
+      return false;
+    }
 
     return true;
   };
@@ -55,7 +55,7 @@ export default function Register() {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/qresp_api/register", {
+      const response = await fetch("http://localhost:1234/qresp_api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export default function Register() {
       });
 
       if (response.ok) {
-        setMessage("username registrat amb èxit.");
+        setMessage("Usuari registrat amb èxit.");
         navigate("/intro-dades"); // Redirigir a la pàgina IntroDades després de l'èxit
       } else {
         const errorData = await response.json();
@@ -78,10 +78,10 @@ export default function Register() {
 
   return (
     <div className="App">
-      <h1>Registre d'username</h1>
+      <h1>Registre d'usuari</h1>
       <form onSubmit={handleSubmit} className="register-form-reg">
         <div className="form-group-reg">
-          <label htmlFor="username">usuari:</label>
+          <label htmlFor="username">Usuari:</label>
           <input
             type="text"
             id="username"
@@ -92,7 +92,7 @@ export default function Register() {
           />
         </div>
         <div className="form-group-reg">
-          <label htmlFor="password">contrasenya:</label>
+          <label htmlFor="password">Contrasenya:</label>
           <input
             type="password"
             id="password"
