@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importar el hook useNavigate
-import IntroDades from "./IntroDades";
 import "./styles.css";
 
 export default function Register() {
@@ -64,9 +63,17 @@ export default function Register() {
         body: JSON.stringify(formData),
       });
 
+      // Función para guardar el username en la cookie
+      function setUsernameCookie(username) {
+        document.cookie = `username=${username}; path=/; max-age=3600`; // max-age=3600 es 1 hora
+      }
+
+      // Guardamos el username en la cookie
+      setUsernameCookie(formData.username);
+
       if (response.ok) {
         setMessage("Usuari registrat amb èxit.");
-        navigate(IntroDades); // Redirigir a la pàgina IntroDades després de l'èxit
+        navigate("../IntroDades"); // Redirigir a la pàgina IntroDades després de l'èxit
       } else {
         const errorData = await response.json();
         setError(`Error: ${errorData.message}`);
@@ -78,7 +85,7 @@ export default function Register() {
   };
 
   return (
-    <div className="App">
+    <div className="FormReg">
       <h1>Registre d'usuari</h1>
       <form onSubmit={handleSubmit} className="register-form-reg">
         <div className="form-group-reg">

@@ -15,6 +15,15 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
+.FormReg{
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
 h1 {
   font-size: 2.5em;
   color: #333;
@@ -56,7 +65,7 @@ h2 {
 }
 
 .form-group-reg {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .form-group-reg label {
@@ -65,9 +74,8 @@ h2 {
 }
 
 .form-group-reg input {
-  width: 20%;
+  width: 30%;
   padding: 8px;
-  box-sizing: border-box;
 }
 
 .btn {
@@ -148,4 +156,32 @@ h2 {
   color: green;
   font-weight: bold;
   margin-top: 10px;
+}
+
+/* Estilos para los checkboxes */
+.symptoms-form .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center; /* Alinea els elements cap a l'esquerra (default) */
+  /* O utilitza 'center' o 'flex-end' per moure el conjunt cap al centre o a la dreta */
+}
+
+.symptoms-form .form-group label {
+  margin-right: 10px; /* Espacio entre el texto y el checkbox */
+}
+
+.symptoms-form .form-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 0; /* Asegura que el checkbox sea cuadrado */
+  appearance: none; /* Elimina el estilo predeterminado */
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  cursor: pointer;
+}
+
+.symptoms-form .form-group input[type="checkbox"]:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
 }

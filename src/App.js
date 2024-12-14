@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./styles.css";
 import Register from "./Register"; // Importar el componente de registro
-import IntroDades from "./IntroDades";
+import IntroDades from "./IntroDades"; // Importar el componente de introducción de datos
+import Consulta from "./Consulta"; // Importar el componente de consulta
+import History from "./History"; // Importar el componente de consulta
 import medico1 from "./images/medico1.png";
 import pulmon from "./images/pulmon.png";
+
+function setUsernameCookie(username) {
+  document.cookie = `username=${username}; path=/; max-age=3600`; // max-age=3600 es 1 hora
+}
 
 export default function App() {
   const [username, setUsername] = useState("");
@@ -16,7 +22,7 @@ export default function App() {
     const data = { username, password };
 
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("http://localhost:1000/qresp_api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +32,10 @@ export default function App() {
 
       if (response.ok) {
         const result = await response.json();
+        // Guardamos el username en la cookie
+        setUsernameCookie(formData.username);
         setMessage(`Bienvenido, ${result.username}`);
+        navigate("../Consulta"); // Redirigir a la página de consulta
       } else {
         const error = await response.json();
         setMessage(`Error: ${error.message}`);
@@ -48,7 +57,7 @@ export default function App() {
               <div>
                 <h1>Q-RESP</h1>
                 <h2>Developed by ALUE</h2>
-                <div className="content-container">
+                  <div className="content-container">
                   <div className="image-left">
                     <img src={medico1} alt="Médico 1" className="medico-image" />
                   </div>
@@ -92,6 +101,9 @@ export default function App() {
           />
           {/* Ruta para el registro */}
           <Route path="/register" element={<Register />} />
+          <Route path="/IntroDades" element={<IntroDades />} />
+          <Route path="/Consulta" element={<Consulta />} />
+          <Route path="/History" element={<History />} />
         </Routes>
       </div>
     </Router>

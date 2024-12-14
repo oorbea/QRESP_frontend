@@ -1,62 +1,102 @@
 import React, { useState } from "react";
 import "./styles.css";
 
+function getUsernameFromCookie() {
+  const name = "username=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(";");
+
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 export default function IntroDades() {
+  // Función para obtener el valor de una cookie por nombre
+
+  // Llamar a esta función para obtener el username guardado en la cookie
+  const token = getUsernameFromCookie();
+
   const [formData, setFormData] = useState({
-    DNI: "",
-    Nom: "",
-    Cognom: "",
-    DataNaixement: "",
-    Telefon: "",
-    Sexe: "",
+    username: token,
+    dni: "",
+    name: "",
+    last_name: "",
+    birth: "",
+    tel: "",
+    gender: "",
   });
+
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData({ ...formData, [name]: value });
-    setError(""); // Netejar errors en modificar qualsevol camp
+    setError(""); // Limpiar errores al modificar cualquier campo
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validacions bàsiques
-    if (!formData.DNI || !formData.Nom || !formData.Cognom || !formData.DataNaixement || !formData.Telefon || !formData.Sexe) {
+    // Validaciones básicas
+    const { dni, name, last_name, birth, tel, gender, username } = formData;
+    if (!dni || !name || !last_name || !birth || !tel || !gender || !username) {
       setError("Tots els camps són obligatoris.");
       return;
     }
 
-    if (!/^\d{8}[A-Za-z]$/.test(formData.DNI)) {
+    if (!/^\d{8}[A-Za-z]$/.test(dni)) {
       setError("El DNI no és vàlid.");
       return;
     }
 
-    if (isNaN(formData.Telefon) || formData.Telefon.length < 9) {
+    const telNumber = parseInt(tel, 10);
+
+    if (isNaN(telNumber) || telNumber.toString().length < 9) {
       setError("El telèfon ha de tenir com a mínim 9 dígits numèrics.");
       return;
     }
 
+    // La fecha ya está en formato aaaa-mm-dd por lo que no hace falta ningún cambio
+    const formattedBirth = birth;
+
     try {
-      const response = await fetch("http://localhost:5000/api/introDades", {
+      // Función para guardar el username en la cookie    
+      const response = await fetch("http://localhost:1000/qresp_api/patient", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          birth: formattedBirth,
+          tel: telNumber, // Enviar el tel como número
+          username: username, // Asegurarse de que el username se pase
+        }),
       });
 
       if (response.ok) {
         setMessage("Dades enviades correctament!");
+        navigate("../History"); // Redirigir a la página de historial
         setFormData({
-          DNI: "",
-          Nom: "",
-          Cognom: "",
-          DataNaixement: "",
-          Telefon: "",
-          Sexe: "",
+          dni: "",
+          name: "",
+          last_name: "",
+          birth: "",
+          tel: "",
+          gender: "",
+          username: "", // Limpiar el username también
         });
+        navigate("../Consulta"); // Redirigir a la página de consulta
       } else {
         const errorData = await response.json();
         setError(`Error: ${errorData.message}`);
@@ -72,66 +112,66 @@ export default function IntroDades() {
       <h1>Introdueix les teves dades personals</h1>
       <form onSubmit={handleSubmit} className="register-form">
         <div className="form-group-reg">
-          <label htmlFor="DNI">DNI:</label>
+          <label htmlFor="dni">DNI:</label>
           <input
             type="text"
-            id="DNI"
-            name="DNI"
-            value={formData.DNI}
+            id="dni"
+            name="dni"
+            value={formData.dni}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group-reg">
-          <label htmlFor="Nom">Nom:</label>
+          <label htmlFor="name">Nom:</label>
           <input
             type="text"
-            id="Nom"
-            name="Nom"
-            value={formData.Nom}
+            id="name"
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group-reg">
-          <label htmlFor="Cognom">Cognom:</label>
+          <label htmlFor="last_name">Cognom:</label>
           <input
             type="text"
-            id="Cognom"
-            name="Cognom"
-            value={formData.Cognom}
+            id="last_name"
+            name="last_name"
+            value={formData.last_name}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group-reg">
-          <label htmlFor="DataNaixement">Data de Naixement:</label>
+          <label htmlFor="birth">Data de Naixement:</label>
           <input
             type="date"
-            id="DataNaixement"
-            name="DataNaixement"
-            value={formData.DataNaixement}
+            id="birth"
+            name="birth"
+            value={formData.birth}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group-reg">
-          <label htmlFor="Telefon">Telèfon:</label>
+          <label htmlFor="tel">Telèfon:</label>
           <input
             type="text"
-            id="Telefon"
-            name="Telefon"
-            value={formData.Telefon}
+            id="tel"
+            name="tel"
+            value={formData.tel}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group-reg">
-          <label htmlFor="Sexe">Sexe:</label>
+          <label htmlFor="gender">Sexe:</label>
           <select
-            id="Sexe"
-            name="Sexe"
-            value={formData.Sexe}
+            id="gender"
+            name="gender"
+            value={formData.gender}
             onChange={handleChange}
             required
           >
