@@ -61,6 +61,14 @@ export default function Register() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
+      })
+      
+      const QR_creator = await fetch("http://localhost:1000/qresp_api/qr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
       // Función para guardar el username en la cookie
@@ -73,8 +81,15 @@ export default function Register() {
 
       if (response.ok) {
         setMessage("Usuari registrat amb èxit.");
-        navigate("../IntroDades"); // Redirigir a la pàgina IntroDades després de l'èxit
-      } else {
+        if(QR_creator.ok){
+          navigate("../IntroDades"); // Redirigir a la pàgina IntroDades després de l'èxit
+        }
+        else {
+          const errorData = await QR_creator.json();
+          setError(`Error: ${errorData.message}`);
+        }
+      } 
+      else {
         const errorData = await response.json();
         setError(`Error: ${errorData.message}`);
       }
@@ -85,9 +100,9 @@ export default function Register() {
   };
 
   return (
-    <div className="FormReg">
+    <div className="FromHistory">
       <h1>Registre d'usuari</h1>
-      <form onSubmit={handleSubmit} className="register-form-reg">
+      <form onSubmit={handleSubmit} className="history-form">
         <div className="form-group-reg">
           <label htmlFor="username">Usuari:</label>
           <input

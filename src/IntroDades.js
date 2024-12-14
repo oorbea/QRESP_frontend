@@ -94,7 +94,6 @@ export default function IntroDades() {
           gender: "",
           username: "", // Limpiar el username también
         });
-        navigate("../Consulta"); // Redirigir a la página de consulta
       } else {
         const errorData = await response.json();
         setError(`Error: ${errorData.message}`);
@@ -106,9 +105,9 @@ export default function IntroDades() {
   };
 
   return (
-    <div className="App">
+    <div className="FromHistory">
       <h1>Introdueix les teves dades personals</h1>
-      <form onSubmit={handleSubmit} className="register-form">
+      <form onSubmit={handleSubmit} className="history-form">
         <div className="form-group-reg">
           <label htmlFor="dni">DNI:</label>
           <input

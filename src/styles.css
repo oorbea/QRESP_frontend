@@ -121,6 +121,7 @@ input{
 
 .form-group-reg {
   margin-bottom: 20px;
+  color: #333;
 }
 
 .form-group-reg label {
@@ -218,4 +219,63 @@ input{
 .symptoms-form .form-group input[type="checkbox"]:checked {
   background-color: #4caf50;
   border-color: #4caf50;
+}
+
+/* Estilo general para el formulario */
+.history-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px #e61f1f1a;
+}
+
+/* Estilo para cada grupo de formulario */
+.form-group-history {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Etiquetas dentro de los formularios */
+.form-group-history label {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.history-form input[type="text"],
+.history-form input[type="password"],
+.history-form input[type="checkbox"] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;  /* Ajustar el ancho máximo de los inputs */
+  box-sizing: border-box; /* Para que el padding no afecte el ancho */
+}
+
+/* Estilo para los checkboxes (hacerlos más pequeños) */
+.history-form input[type="checkbox"] {
+  width: auto;
+  margin-top: 5px;
+  align-self: flex-center;
+}
+
+/* Estilo para mostrar errores */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Estilo para mostrar mensajes de éxito */
+.message {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
 }

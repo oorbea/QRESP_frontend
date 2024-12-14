@@ -2,38 +2,52 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
-export default function QR() {
-  const [qrUrl, setQrUrl] = useState(""); // Estado para almacenar la URL del QR
-  const [error, setError] = useState("");
+// Función para obtener el nombre de usuario desde las cookies
+function getUsernameFromCookie() {
+  const name = "username=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(";");
 
-  // Obtener la URL de la API
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+export default function QR() {
+  const [qrImage, setQrImage] = useState(null); // Estado para la imagen del QR
+  const token = getUsernameFromCookie(); // Obtener el nombre de usuario desde la cookie
+
+  // Usamos useEffect para cargar la imagen del QR cuando el token cambia
   useEffect(() => {
-    const fetchQrUrl = async () => {
+    if (token) {
       try {
-        const response = await fetch("http://localhost:1000/qresp_api/qr/"); // Cambia esta URL según tu API
-        if (response.ok) {
-          const data = await response.json();
-          setQrUrl(data.url); // Supongamos que la API devuelve un objeto con { url: "URL_DE_LOGIN" }
-        } else {
-          setError("Error al obtener el enlace del QR.");
-        }
+        // Usamos require para cargar dinámicamente la imagen según el token
+        const image = require(`./qr/${token}.png`); // Ajusta la extensión según el tipo de archivo
+        setQrImage(image);
       } catch (err) {
-        setError("Error al conectar con el servidor.");
-        console.error(err);
+        console.error("Error al cargar la imagen QR:", err);
+        setQrImage(null); // Si hay un error, no mostramos la imagen
       }
-    };
-  }, []);
+    }
+  }, [token]); // Se ejecuta cuando el token cambia
 
   return (
     <div className="qr-container">
       <h1>Acceso rápido con QR</h1>
-      {qrUrl ? (
+      {qrImage ? (
         <div>
-          <QRCode value={qrUrl} size={256} bgColor="#ffffff" fgColor="#000000" />
+          <img src={qrImage} alt="Código QR" className="qr-image" />
           <p>Escanea el código QR con tu dispositivo para acceder.</p>
         </div>
       ) : (
-        <p>{error || "Cargando QR..."}</p>
+        <p>Cargando QR...</p>
       )}
       <Link to="../" className="btn-link">
         Ir a la página de login

@@ -86,7 +86,7 @@ export default function History() {
 
   return (
     <div className="FormHistory">
-      <h1>Introdueix les teves dades històriques</h1>
+      <h1>Introdueix les teves dades mèdiquess</h1>
       <form onSubmit={handleSubmit} className="history-form">
         <div className="form-group-history">
           <label htmlFor="mpid">MPID:</label>
@@ -111,16 +111,6 @@ export default function History() {
           />
         </div>
         <div className="form-group-history">
-          <label htmlFor="immuno">Immunosupressió:</label>
-          <input
-            type="checkbox"
-            id="immuno"
-            name="immuno"
-            checked={formData.immuno}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group-history">
           <label htmlFor="comorbi">Comorbiditat:</label>
           <input
             type="text"
@@ -130,6 +120,16 @@ export default function History() {
             onChange={handleChange}
             required
           />
+        </div>
+          <div className="form-group-history">
+            <label htmlFor="immuno">Immunosupressió:</label>
+            <input
+              type="checkbox"
+              id="immuno"
+              name="immuno"
+              checked={formData.immuno}
+              onChange={handleChange}
+            />
         </div>
 
         {/* Mostrar error si hi ha */}
