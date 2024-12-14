@@ -5,6 +5,7 @@ import "./styles.css";
 dotenv.config();
 
 const PORT_API = process.env.PORT_API ?? 1000;
+const BASE_URL = `http://localhost:${PORT_API}`;
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -59,7 +60,7 @@ export default function Register() {
     }
 
     try {
-      const response = await fetch(`http://localhost:${PORT_API}/qresp_api/register`, {
+      const response = await fetch(`${BASE_URL}/qresp_api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
