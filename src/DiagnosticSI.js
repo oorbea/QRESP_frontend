@@ -17,8 +17,7 @@ function getUsernameFromCookie() {
 }
 
 export default function DiagnosticNOP() {
-  const [diagnostic, setDiagnostic] = useState(""); // Per al diagnòstic retornat per l'API
-  const [emergency, setEmergency] = useState(false); // Per al booleà retornat per l'API
+  const [decision, setDiagnostic] = useState(""); // Per al diagnòstic retornat per l'API
   const [error, setError] = useState("");
   const token = getUsernameFromCookie(); // Obtenim el username de les cookies
 
@@ -37,8 +36,7 @@ export default function DiagnosticNOP() {
 
         if (response.ok) {
           const data = await response.json();
-          setDiagnostic(data.diagnostic); // Assignem el valor del diagnòstic
-          setEmergency(data.emergency); // Assignem el valor del booleà emergency
+          setDiagnostic(data.decision); // Assignem el valor del diagnòstic
         } else {
           const errorData = await response.json();
           setError(`Error: ${errorData.message}`);
@@ -56,9 +54,9 @@ export default function DiagnosticNOP() {
     <div className="resultats-container">
       <h1>Resultats de la Consulta Final</h1>
       {error && <p className="error-message">{error}</p>}
-      {diagnostic ? (
+      {decision ? (
         <div className="result-box">
-          <p>{diagnostic}</p> {/* Mostrem el diagnòstic retornat */}
+          <p>{decision}</p> {/* Mostrem el diagnòstic retornat */}
         </div>
       ) : (
         <p>Carregant resultats...</p>
