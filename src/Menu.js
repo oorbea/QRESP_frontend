@@ -38,7 +38,7 @@ export default function Menu() {
           className="QR-btn"
           onClick={() => (window.location.href = "/DatosUser")}
         >
-          Dades de l'Usuari
+          Detalls del pacient
         </button>
 
         {/* Botón para redirigir a CanviContrasenya.js */}

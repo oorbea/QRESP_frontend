@@ -24,7 +24,6 @@ export default function ResultatsConsulta() {
 
   useEffect(() => {
     const fetchData = async () => {
-        console.log('TOKEN: ' + token);
       try {
 
         const response = await fetch(`http://localhost:1000/qresp_api/diagnostic`, {
