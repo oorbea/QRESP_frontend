@@ -86,7 +86,7 @@ export default function History() {
 
   return (
     <div className="FormHistory">
-      <h1>Introdueix les teves dades mèdiquess</h1>
+      <h1>Introdueix les teves dades mèdiques</h1>
       <form onSubmit={handleSubmit} className="history-form">
         <div className="form-group-history">
           <label htmlFor="mpid">MPID:</label>
