@@ -135,7 +135,7 @@ export default function History() {
         {/* Mostrar error si hi ha */}
         {error && <p className="error">{error}</p>}
 
-        <button type="submit" className="btn-history">Enviar</button>
+        <button type="submit" className="QR-btn">Enviar</button>
       </form>
 
       {/* Mostrar missatge de resposta */}

@@ -27,23 +27,39 @@ export default function Menu() {
       <div className="menu-buttons">
         {/* Botón para redirigir a Consulta.js */}
         <button
-          className="menu-btn"
+          className="button-pass"
           onClick={() => (window.location.href = "/Consulta")}
         >
           Consulta
         </button>
 
+        {/* Botón para redirigir a DatosUser.js */}
+        <button
+          className="QR-btn"
+          onClick={() => (window.location.href = "/DatosUser")}
+        >
+          Dades de l'Usuari
+        </button>
+
         {/* Botón para redirigir a CanviContrasenya.js */}
         <button
-          className="menu-btn"
+          className="QR-btn"
           onClick={() => (window.location.href = "/CanviContrasenya")}
         >
           Canviar Contrasenya
         </button>
 
+        {/* Botón para redirigir a QR.js */}
+        <button
+          className="QR-btn"
+          onClick={() => (window.location.href = "/QR")}
+        >
+          Veure QR
+        </button>
+
         {/* Botón para redirigir a EditarUser.js */}
         <button
-          className="menu-btn"
+          className="QR-btn"
           onClick={() => (window.location.href = "/EditUser")}
         >
           Editar Usuari

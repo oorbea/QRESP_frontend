@@ -178,7 +178,7 @@ export default function IntroDades() {
             <option value="Altres">Altres</option>
           </select>
         </div>
-        <button type="submit" className="btn-reg">Enviar</button>
+        <button type="submit" className="QR-btn">Enviar</button>
       </form>
 
       {error && <p className="error">{error}</p>}

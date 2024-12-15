@@ -6,7 +6,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-button{
+.button-pass{
   background:#48a4da;
   color:#ffffff;
   border:none;
@@ -18,11 +18,11 @@ button{
   transition:800ms ease all;
   outline:none;
 }
-button:hover{
+.button-pss:hover{
   background:#fff;
   color:#1AAB8A;
 }
-button:before,button:after{
+.button-pass:before,button:after{
   content:'';
   position:absolute;
   top:0;
@@ -32,13 +32,13 @@ button:before,button:after{
   background: #1AAB8A;
   transition:400ms ease all;
 }
-button:after{
+.button-pass:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
-button:hover:before,button:hover:after{
+.button-pass:hover:before,.button-pass:hover:after{
   width:100%;
   transition:800ms ease all;
 }
@@ -364,4 +364,124 @@ input{
 
 .delete-form button:hover {
   background-color: #d32f2f; /* Rojo oscuro al pasar el cursor */
+}
+
+button.QR-btn, 
+a.QR-btn {
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff; /* Texto blanco */
+  background-color: #4caf50; /* Verde suave */
+  padding: 12px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none; /* Eliminar subrayado de enlaces */
+  transition: all 0.3s ease-in-out; /* Animación fluida */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.QR-btn:hover {
+  background-color: #45a049; /* Verde más intenso al hacer hover */
+  transform: translateY(-2px); /* Leve elevación al pasar el ratón */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Incrementar sombra */
+}
+
+.QR-btn:active {
+  background-color: #3e8e41; /* Verde más oscuro al hacer clic */
+  transform: translateY(0); /* Eliminar elevación */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más cercana */
+}
+
+/* Estilos para el contenedor principal */
+.Consulta {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+.Consulta h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Mensaje de éxito */
+.success-message {
+  color: green;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de los detalles del paciente */
+.patient-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre los elementos del formulario */
+}
+
+/* Estilos para cada línea de checkbox */
+.patient-details div {
+  font-size: 18px; /* Aumentar el tamaño de la fuente */
+  display: flex;
+  align-items: center; /* Alinea la casilla de verificación y el texto */
+  gap: 10px; /* Espacio entre la casilla y el texto */
+}
+
+/* Estilo para los checkboxes */
+.patient-details input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Estilo para el label */
+.patient-details label {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* Estilo para la caja de datos */
+.patient-details div {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para el botón */
+.QR-btn {
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.QR-btn:hover {
+  background-color: #0056b3;
 }

@@ -140,7 +140,7 @@ export default function Register() {
         {/* Mostra error si hi ha */}
         {error && <p className="error">{error}</p>}
 
-        <button type="submit" className="btn-reg">
+        <button type="submit" className="QR-btn">
           Registrar
         </button>
       </form>

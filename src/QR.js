@@ -40,18 +40,25 @@ export default function QR() {
 
   return (
     <div className="qr-container">
-      <h1>Acceso rápido con QR</h1>
+      <h1>Accés ràpid amb QR</h1>
       {qrImage ? (
         <div>
           <img src={qrImage} alt="Código QR" className="qr-image" />
-          <p>Escanea el código QR con tu dispositivo para acceder.</p>
+          <p>Escaneja el codi QR amb el teu dispositiu per a accedir.</p>
+          {/* Botón para descargar el QR */}
+          <a href={qrImage} download={`${token}-qr.png`} className="QR-btn">
+            Descàrrega QR
+          </a>
         </div>
       ) : (
-        <p>Cargando QR...</p>
+        <p>Carregant QR...</p>
       )}
-      <Link to="../" className="btn-link">
-        Ir a la página de login
-      </Link>
+      <button
+        className="QR-btn"
+        onClick={() => (window.location.href = "/Menu")}
+      >
+        Anar al menu principal
+      </button>
     </div>
   );
 }

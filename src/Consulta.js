@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 // Función para obtener el valor de una cookie por nombre
@@ -41,8 +40,6 @@ export default function Consulta() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
-
   const handleChange = (e) => {
     const { name, checked } = e.target;
     setFormData({ ...formData, [name]: checked });
@@ -63,7 +60,7 @@ export default function Consulta() {
 
       if (response.ok) {
         setMessage("Consulta enviada correctament.");
-        navigate("../ResultatsConsulta");
+        window.location.href = "/ResultatsConsulta"; // Redirigir a la página 
         setFormData({
           ...formData,
           username: token,
@@ -81,8 +78,8 @@ export default function Consulta() {
   return (
     <div className="Consulta">
       <h1>Consulta de Síntomas</h1>
-      <form onSubmit={handleSubmit} className="symptoms-form">
-        <div className="form-group">
+      <form onSubmit={handleSubmit} className="patient-details">
+        <div>
           <label htmlFor="suffocate">Dificultat per respirar:</label>
           <input
             type="checkbox"
@@ -92,7 +89,7 @@ export default function Consulta() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="cough">Tos:</label>
           <input
             type="checkbox"
@@ -102,7 +99,7 @@ export default function Consulta() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="mucus">Moc:</label>
           <input
             type="checkbox"
@@ -112,7 +109,7 @@ export default function Consulta() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="congestion">Congestió nasal:</label>
           <input
             type="checkbox"
@@ -122,7 +119,7 @@ export default function Consulta() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="throat">Dolor de coll:</label>
           <input
             type="checkbox"
@@ -132,7 +129,7 @@ export default function Consulta() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="fever">Febre:</label>
           <input
             type="checkbox"
@@ -142,7 +139,7 @@ export default function Consulta() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="chest_pain">Dolor al pit:</label>
           <input
             type="checkbox"
@@ -152,7 +149,7 @@ export default function Consulta() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="whistle">Xiulet al pit:</label>
           <input
             type="checkbox"
@@ -162,7 +159,7 @@ export default function Consulta() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="malaise">Malestar general:</label>
           <input
             type="checkbox"
@@ -173,7 +170,7 @@ export default function Consulta() {
           />
         </div>
 
-        <button type="submit" className="btn-submit">Enviar Consulta</button>
+        <button type="submit" className="QR-btn">Enviar Consulta</button>
       </form>
 
       {error && <p className="error">{error}</p>}

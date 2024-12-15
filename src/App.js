@@ -10,6 +10,7 @@ import CanviContrasenya from "./CanviContrasenya"; // Importar el componente de 
 import QR from "./QR"; // Importar el componente de QR
 import ResultatsConsulta from "./ResultatsConsulta"; // Importar el componente de resultados de consulta
 import MetgeConsulta from "./MetgeConsulta"; // Importar el componente de consulta del metge
+import DatosUser from "./DatosUser"; // Importar el componente de datos de usuario
 import EditUser from "./EditUser"; // Importar el componente de edición de usuario
 import DeleteUser from "./DeleteUser"; // Importar el componente de eliminación de usuario
 import medico1 from "./images/medico1.png";
@@ -90,7 +91,7 @@ export default function App() {
                         required
                       />
                     </div>
-                    <button>Inicia sessió</button>
+                    <button className="button-pass">Inicia sessió</button>
                   </form>
 
                   <div className="image-right">
@@ -116,6 +117,7 @@ export default function App() {
           <Route path="/Menu" element={<Menu />} />
           <Route path="/CanviContrasenya" element={<CanviContrasenya />} />
           <Route path="/ResultatsConsulta" element={<ResultatsConsulta />} />
+          <Route path="/DatosUser" element={<DatosUser />} />
           <Route path="/EditUser" element={<EditUser />} />
           <Route path="/DeleteUser" element={<DeleteUser />} />
         </Routes>

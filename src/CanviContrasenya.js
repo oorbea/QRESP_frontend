@@ -83,13 +83,7 @@ export default function Register() {
 
       if (response.ok) {
         setMessage("Usuari actualitzat amb èxit.");
-        if(QR_creator.ok){
-          navigate("../IntroDades"); // Redirigir a la pàgina IntroDades després de l'èxit
-        }
-        else {
-          const errorData = await QR_creator.json();
-          setError(`Error: ${errorData.message}`);
-        }
+        navigate("/Menu"); // Redirigir a la pàgina IntroDades després de l'èxit
       } 
       else {
         const errorData = await response.json();
@@ -131,7 +125,7 @@ export default function Register() {
         {/* Mostra error si hi ha */}
         {error && <p className="error">{error}</p>}
 
-        <button type="submit" className="btn-reg">
+        <button type="submit" className="QR-btn">
           Registrar
         </button>
       </form>
