@@ -70,7 +70,7 @@ export default function App() {
             path="/"
             element={
               <div>
-                <h1>Q-RESP</h1>
+                <h1>DiagTrack</h1>
                 <h2>Developed by ALUE</h2>
                   <div className="content-container">
                   <div className="image-left">
@@ -107,7 +107,7 @@ export default function App() {
                 </div>
 
                 <p>
-                  No tens conta? <Link to="/register">Registrat aquí</Link>
+                  No tens compte? <Link to="/register">Registrat aquí</Link>
                 </p>
 
                 {message && <p className="message">{message}</p>}
