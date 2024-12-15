@@ -510,3 +510,16 @@ a.QR-btn {
   background-color: #0056b3; /* Canvia el color de fons quan el botó està actiu */
   transform: scale(1.1); /* Augmenta el tamany del botó al passar el ratolí */
 }
+
+.result-box {
+  padding: 20px;
+  background: linear-gradient(135deg, #b2dfdb, #e0f2f1); /* Degradat suau en verds */
+  border: 2px solid #004d40; /* Borda definida i fosca */
+  border-radius: 8px; /* Arrodonir els cantons */
+  text-align: justify; /* Justificar text per a una millor llegibilitat */
+  color: #004d40; /* Color del text */
+  font-size: 18px; /* Text gran i clar */
+  font-weight: 400; /* Pes moderat del text */
+  line-height: 1.6; /* Espai entre línies */
+  margin: 20px 0;
+}

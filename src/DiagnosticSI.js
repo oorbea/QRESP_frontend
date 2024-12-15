@@ -16,27 +16,32 @@ function getUsernameFromCookie() {
   return "";
 }
 
-export default function DiagnosticNOP() {
+// Funció per netejar el text d'asteriscos
+function cleanText(text) {
+  return text.replace(/\*/g, ""); // Elimina tots els asteriscos
+}
+
+export default function DiagnosticSI() {
   const [decision, setDiagnostic] = useState(""); // Per al diagnòstic retornat per l'API
   const [error, setError] = useState("");
   const token = getUsernameFromCookie(); // Obtenim el username de les cookies
 
   useEffect(() => {
     const fetchData = async () => {
-    let valoration = "pneumonia"; // Assignem el valor de la valoration pq estem a la pàgina de no pneumònia
+      const valoration = "pneumonia"; // Assignem el valor de la valoration per aquesta pàgina
       try {
-
         const response = await fetch(`http://localhost:1000/qresp_api/final_treatment`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username: token, valoration }),
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username: token, valoration }),
         });
 
         if (response.ok) {
           const data = await response.json();
-          setDiagnostic(data.decision); // Assignem el valor del diagnòstic
+          // Netejar el text de diagnòstic d'asteriscos abans d'assignar-lo
+          setDiagnostic(cleanText(data.decision));
         } else {
           const errorData = await response.json();
           setError(`Error: ${errorData.message}`);
