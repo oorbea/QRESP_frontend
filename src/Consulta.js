@@ -63,7 +63,7 @@ export default function Consulta() {
 
       if (response.ok) {
         setMessage("Consulta enviada correctament.");
-        navigate("../MetgeConsulta");
+        navigate("../ResultatsConsulta");
         setFormData({
           ...formData,
           username: token,

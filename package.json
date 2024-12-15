@@ -12,7 +12,7 @@
     "react-router-dom": "^7.0.2",
     "react-scripts": "^5.0.1"
   },
-  "author": "Ernest Rull & Alcia Ortega",
+  "author": "Ernest Rull & Oriol Orbea",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/oorbea/QRESP_frontend/issues"

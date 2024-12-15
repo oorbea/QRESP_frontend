@@ -5,8 +5,13 @@ import Register from "./Register"; // Importar el componente de registro
 import IntroDades from "./IntroDades"; // Importar el componente de introducción de datos
 import Consulta from "./Consulta"; // Importar el componente de consulta
 import History from "./History"; // Importar el componente de consulta
+import Menu from "./Menu"; // Importar el componente de menu
+import CanviContrasenya from "./CanviContrasenya"; // Importar el componente de cambio de contraseña
 import QR from "./QR"; // Importar el componente de QR
+import ResultatsConsulta from "./ResultatsConsulta"; // Importar el componente de resultados de consulta
 import MetgeConsulta from "./MetgeConsulta"; // Importar el componente de consulta del metge
+import EditUser from "./EditUser"; // Importar el componente de edición de usuario
+import DeleteUser from "./DeleteUser"; // Importar el componente de eliminación de usuario
 import medico1 from "./images/medico1.png";
 import pulmon from "./images/pulmon.png";
 
@@ -36,7 +41,7 @@ export default function App() {
         const result = await response.json();
         // Guardamos el username en la cookie
         setUsernameCookie(data.username);
-        window.location.href = "../Consulta"; // Redirige usando window.location
+        window.location.href = "../Menu"; // Redirige usando window.location
         setMessage(`Bienvenido, ${result.username}`);
       } else {
         const error = await response.json();
@@ -108,6 +113,11 @@ export default function App() {
           <Route path="/History" element={<History />} />
           <Route path="/QR" element={<QR />} />
           <Route path="/MetgeConsulta" element={<MetgeConsulta />} />
+          <Route path="/Menu" element={<Menu />} />
+          <Route path="/CanviContrasenya" element={<CanviContrasenya />} />
+          <Route path="/ResultatsConsulta" element={<ResultatsConsulta />} />
+          <Route path="/EditUser" element={<EditUser />} />
+          <Route path="/DeleteUser" element={<DeleteUser />} />
         </Routes>
       </div>
     </Router>

@@ -279,3 +279,89 @@ input{
   font-size: 14px;
   margin-top: 10px;
 }
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.menu-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-btn {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4caf50; /* Verde */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: #45a049; /* Verde oscuro */
+}
+
+.delete-btn {
+  background-color: #f44336; /* Rojo */
+}
+
+.delete-btn:hover {
+  background-color: #e53935; /* Rojo oscuro */
+}
+
+/* Estilo para el formulario back-form (verde) */
+.back-form {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.back-form button {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-form button:hover {
+  background-color: #45a049; /* Verde oscuro al pasar el cursor */
+}
+
+/* Estilo para el formulario delete-form (rojo) */
+.delete-form {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.delete-form button {
+  background-color: #f44336; /* Rojo */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-form button:hover {
+  background-color: #d32f2f; /* Rojo oscuro al pasar el cursor */
+}
