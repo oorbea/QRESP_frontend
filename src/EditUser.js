@@ -176,6 +176,12 @@ export default function IntroDades() {
           </select>
         </div>
         <button type="submit" className="QR-btn">Enviar</button>
+        <button
+        className="QR-btn"
+        onClick={() => (window.location.href = "/Menu")}
+      >
+        Tornar al menú principal
+      </button>
       </form>
 
       {error && <p className="error">{error}</p>}

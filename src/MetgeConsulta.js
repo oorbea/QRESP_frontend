@@ -76,7 +76,7 @@ export default function MetgeConsulta() {
       <h1>Crear proves mèdiques</h1>
       <form onSubmit={handleSubmit} className="patient-details">
         <div>
-          <label htmlFor="analitic">Anàlisi:</label>
+          <label htmlFor="analitic">Analítica urgent:</label>
           <input
             type="text"
             id="analitic"
@@ -87,7 +87,7 @@ export default function MetgeConsulta() {
           />
         </div>
         <div>
-          <label htmlFor="gasometry">Gasometria:</label>
+          <label htmlFor="gasometry">Gasometria Arterial:</label>
           <input
             type="text"
             id="gasometry"
@@ -109,7 +109,7 @@ export default function MetgeConsulta() {
           />
         </div>
         <div>
-          <label htmlFor="torax">Tòrax:</label>
+          <label htmlFor="torax">RX tòrax:</label>
           <input
             type="text"
             id="torax"

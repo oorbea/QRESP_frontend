@@ -171,6 +171,12 @@ export default function Consulta() {
         </div>
 
         <button type="submit" className="QR-btn">Enviar Consulta</button>
+        <button
+        className="QR-btn"
+        onClick={() => (window.location.href = "/Menu")}
+      >
+        Tornar al menú principal
+      </button>
       </form>
 
       {error && <p className="error">{error}</p>}

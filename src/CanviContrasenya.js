@@ -128,6 +128,12 @@ export default function Register() {
         <button type="submit" className="QR-btn">
           Registrar
         </button>
+        <button
+        className="QR-btn"
+        onClick={() => (window.location.href = "/Menu")}
+      >
+        Tornar al menú principal
+      </button>
       </form>
 
       {/* Mostra missatge de resposta */}

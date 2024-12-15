@@ -98,7 +98,7 @@ export default function MetgeConsulta() {
           />
         </div>
         <div>
-          <label htmlFor="hemo">Hemo:</label>
+          <label htmlFor="hemo">Hemocultius:</label>
           <input
             type="text"
             id="hemo"
@@ -109,7 +109,7 @@ export default function MetgeConsulta() {
           />
         </div>
         <div>
-          <label htmlFor="pcr">PCR:</label>
+          <label htmlFor="pcr">PCR virus:</label>
           <input
             type="text"
             id="pcr"
