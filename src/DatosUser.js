@@ -87,7 +87,7 @@ export default function DetallesPaciente() {
           className="QR-btn"
           onClick={() => (window.location.href = "/Menu")}
         >
-          Tornar al menu
+          Tornar al menú
         </button>
         </div>
       ) : (

@@ -13,6 +13,8 @@ import MetgeConsulta from "./MetgeConsulta"; // Importar el componente de consul
 import DatosUser from "./DatosUser"; // Importar el componente de datos de usuario
 import EditUser from "./EditUser"; // Importar el componente de edición de usuario
 import DeleteUser from "./DeleteUser"; // Importar el componente de eliminación de usuario
+import Pneumonia from "./Pneumonia"; // Importar el componente de neumonía
+import DiagnosticNOP from "./DiagnosticNOP"; // Importar el componente de diagnóstico no neumonía
 import medico1 from "./images/medico1.png";
 import pulmon from "./images/pulmon.png";
 
@@ -120,6 +122,8 @@ export default function App() {
           <Route path="/DatosUser" element={<DatosUser />} />
           <Route path="/EditUser" element={<EditUser />} />
           <Route path="/DeleteUser" element={<DeleteUser />} />
+          <Route path="/Pneumonia" element={<Pneumonia />} />
+          <Route path="/DiagnosticNOP" element={<DiagnosticNOP />} />
         </Routes>
       </div>
     </Router>

@@ -53,7 +53,7 @@ export default function IntroDades() {
       <h1>Segur que vols borrar l'usuari?</h1>
       <form className="back-form">
         <button type="button" onClick={() => navigate("/Menu")}>
-          Tornar al Menu
+          Tornar al Menú
         </button>
       </form>
       <form onSubmit={handleSubmit} className="delete-form">

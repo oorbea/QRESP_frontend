@@ -485,3 +485,28 @@ a.QR-btn {
 .QR-btn:hover {
   background-color: #0056b3;
 }
+
+.botons-grans {
+  display: flex; /* Per alinear els botons */
+  justify-content: center; /* Centra els botons horitzontalment */
+  align-items: center; /* Centra els botons verticalment */
+  gap: 20%; /* Espai entre els botons en percentatge */
+  height: 100vh; /* Ajusta el contenidor a tota l'alçada de la pantalla */
+}
+
+.botons-grans button {
+  width: 30%; /* Amplada del botó com a percentatge */
+  height: 30%; /* Alçada del botó com a percentatge */
+  font-size: 120%; /* Augmenta la mida de la font del botó proporcionalment */
+  background-color: #007bff; /* Color de fons del botó */
+  color: white; /* Color del text del botó */
+  border: none; /* Elimina les vores */
+  border-radius: 10px; /* Vores arrodonides */
+  cursor: pointer; /* Cursor de mà per indicar que és clicable */
+  transition: transform 0.15s ease, background-color 0.15s ease; /* Animacions */
+}
+
+.botons-grans button:hover {
+  background-color: #0056b3; /* Canvia el color de fons quan el botó està actiu */
+  transform: scale(1.1); /* Augmenta el tamany del botó al passar el ratolí */
+}

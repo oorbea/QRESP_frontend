@@ -57,7 +57,7 @@ export default function QR() {
         className="QR-btn"
         onClick={() => (window.location.href = "/Menu")}
       >
-        Anar al menu principal
+        Anar al menú principal
       </button>
     </div>
   );
