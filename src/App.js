@@ -15,6 +15,10 @@ import EditUser from "./EditUser"; // Importar el componente de edición de usua
 import DeleteUser from "./DeleteUser"; // Importar el componente de eliminación de usuario
 import Pneumonia from "./Pneumonia"; // Importar el componente de neumonía
 import DiagnosticNOP from "./DiagnosticNOP"; // Importar el componente de diagnóstico no neumonía
+import Test2 from "./Test2"; // Importar el componente de test2
+import PneumoniaFinal from "./PneumoniaFinal"; // Importar el componente de neumonía final
+import DiagnosticEMPTY from "./DiagnosticEMPTY"; // Importar el componente de diagnóstico vacío
+import DiagnosticSI from "./DiagnosticSI"; // Importar el componente de diagnóstico sí
 import medico1 from "./images/medico1.png";
 import pulmon from "./images/pulmon.png";
 
@@ -124,6 +128,10 @@ export default function App() {
           <Route path="/DeleteUser" element={<DeleteUser />} />
           <Route path="/Pneumonia" element={<Pneumonia />} />
           <Route path="/DiagnosticNOP" element={<DiagnosticNOP />} />
+          <Route path="/Test2" element={<Test2 />} />
+          <Route path="/PneumoniaFinal" element={<PneumoniaFinal />} />
+          <Route path="/DiagnosticEMPTY" element={<DiagnosticEMPTY />} />
+          <Route path="/DiagnosticSI" element={<DiagnosticSI />} />
         </Routes>
       </div>
     </Router>

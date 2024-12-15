@@ -25,7 +25,7 @@ export default function DiagnosticNOP() {
   useEffect(() => {
     const fetchData = async () => {
 
-    let valoration = "no_pneumonia"; // Assignem el valor de la valoration pq estem a la pàgina de no pneumònia
+    let valoration = ""; // Assignem el valor de la valoration pq estem a la pàgina de no pneumònia
       try {
 
         const response = await fetch(`http://localhost:1000/qresp_api/final_treatment`, {
