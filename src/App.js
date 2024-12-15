@@ -19,6 +19,7 @@ import Test2 from "./Test2"; // Importar el componente de test2
 import PneumoniaFinal from "./PneumoniaFinal"; // Importar el componente de neumonía final
 import DiagnosticEMPTY from "./DiagnosticEMPTY"; // Importar el componente de diagnóstico vacío
 import DiagnosticSI from "./DiagnosticSI"; // Importar el componente de diagnóstico sí
+import Logout from "./Logout"; // Importar el componente de logout
 import medico1 from "./images/medico1.png";
 import pulmon from "./images/pulmon.png";
 
@@ -132,6 +133,7 @@ export default function App() {
           <Route path="/PneumoniaFinal" element={<PneumoniaFinal />} />
           <Route path="/DiagnosticEMPTY" element={<DiagnosticEMPTY />} />
           <Route path="/DiagnosticSI" element={<DiagnosticSI />} />
+          <Route path="/Logout" element={<Logout />} />
         </Routes>
       </div>
     </Router>

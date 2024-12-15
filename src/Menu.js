@@ -65,6 +65,14 @@ export default function Menu() {
           Editar Usuari
         </button>
 
+        {/* Botón para LogOut */}
+        <button
+          className="QR-btn"
+          onClick={() => (window.location.href = "/Logout")}
+        >
+          Logout
+        </button>
+
         {/* Botón para redirigir a login (localhost:3000) */}
         <button
           className="menu-btn delete-btn"
